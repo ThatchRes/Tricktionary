@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tricktionary</title>
+        <link rel="stylesheet" href="Ollie.css">
+    </head>
+    <body>
+        <div class="header">
+            <p class="compName">Tricktionary</p>
+            <h1 class="OllieHead">Ollie</h1>
+            <button class="homeBtn">home</button>
+        </div>
+        <div class="bodyMiddle">
+            <p class="sideText">RANDOM STUFF ON SIDE</p>
+            
+            <div id="videoBox">
+                <div class="content"></div>
+                <input class="slider" value="0" min="0" max="26" type="range" id="sliderValue">
+            </div>
+        </div>
+    </body>
+    <script>
+        const slider = 
+        document.querySelector("slider")
+        const contentContainer =
+        document.querySelector("content")
+        let slideValue = 
+        document.querySelector("#sliderValue")
+        const imgContainer = document.querySelector("content")
+        let slideNum = slideValue.value
+        let pictureArray = [
+            'https://drive.google.com/uc?export=view&id=[1DAvVVglvs-p-eluHEFkdwdY3owiGv7xX]',
+            'https://drive.google.com/file/d/1IDQ1S_apmN3YJ-D05n7uzKuK5G2RqN4C/view?usp=drive_link',
+            'https://drive.google.com/file/d/1rG3UN2FWHy9WrWFH14MIAg_7wTtSERET/view?usp=drive_link',
+            'https://drive.google.com/file/d/13YXWV3S8R5gXD9YKzO8MZ6UCPOGJmisP/view?usp=drive_link',
+            'https://drive.google.com/file/d/1ycDiBuWq2wHJcMOBXrM-fz_5ito-v87v/view?usp=drive_link',
+            'https://drive.google.com/file/d/1PQ24fu1lk9f8cr1ToST_HicTfJAMq3c6/view?usp=drive_link',
+            'https://drive.google.com/file/d/16Dle4FOtVb1GN0351FiV2A0TTwCkEQC_/view?usp=drive_link',
+            'https://drive.google.com/file/d/19kTxi4i7GaoGiVdk6sKc7wyL4XZr5UKL/view?usp=drive_link',
+            'https://drive.google.com/file/d/1cI2vA9etNViydmS4Msd-VTIVk0ZJWISr/view?usp=drive_link',
+            'https://drive.google.com/file/d/1OPrhInav1UNt_LRdvK8ah-nDOcWNtXly/view?usp=drive_link',
+            'https://drive.google.com/file/d/1EXSxC70Bpt9aa5-uAbj_-MByL2-n498s/view?usp=drive_link',
+            'https://drive.google.com/file/d/1bNYg9znVsppPOe6bLhpLYiwzOrxum9Oz/view?usp=drive_link',
+            'https://drive.google.com/file/d/1aw2sNNvbJZd0L7JUceO0skvmc0WYZ8rC/view?usp=drive_link',
+            'https://drive.google.com/file/d/1YEIRxw8XwALOOiLXw8IstXgD6AhgdWmX/view?usp=drive_link',
+            'https://drive.google.com/file/d/14_eAbMkZnB-iXOKhGI71riU5ndElSc7N/view?usp=drive_link',
+            'https://drive.google.com/file/d/1eWjgomcGBlAFc5FiKSJbpyDOHzKwiT4J/view?usp=drive_link',
+            'https://drive.google.com/file/d/1kSY6eQen0LE9kXKVPqbTUTGv36V9MxKi/view?usp=drive_link',
+            'https://drive.google.com/file/d/1UUrv5Z3xgRWjvxKYVyZOJNZE58GsKMYG/view?usp=drive_link',
+            'https://drive.google.com/file/d/1CTj6F9_zDxfRAMyFK92Vu2PVC5j1eg64/view?usp=drive_link',
+            'https://drive.google.com/file/d/1DCXXFLUDQVpbxRVCFYT7QgVMeg7PSeuH/view?usp=drive_link',
+            'https://drive.google.com/file/d/1uyWXIfqTYnTkRWpIGvucpNTQoa0JVGsN/view?usp=drive_link',
+            'https://drive.google.com/file/d/1IcX5ri9a3B5uf8ShjJvjh83dQv176hGk/view?usp=drive_link',
+            'https://drive.google.com/file/d/1qcadkQogVJ1o2KR9iNz7xQRNliSdA-8f/view?usp=drive_link',
+            'https://drive.google.com/file/d/1lCmG1rP97AL4iuhdk1r_b_8OjitEPJSn/view?usp=drive_link',
+            'https://drive.google.com/file/d/1Rnb6s-i0h8nAZ5EmKTB-tQmqYbHn6e2_/view?usp=drive_link',
+            'https://drive.google.com/file/d/1PuKxYJBbxWLBFq8ErKFNZrKybHRyicFs/view?usp=drive_link'
+        ]
+        sliderValue.addEventListener('input', getImage())
+        function getImage(){
+            console.log(slideValue)
+            let amnt = slideNum
+            let image = document.createElement('img')
+            image.src = pictureArray[amnt]
+            image.alt = "Skate Picture"
+            imgContainer.appendChild(image)
+        }
+
+        
+    </script>
+</html>
