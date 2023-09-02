@@ -15,58 +15,67 @@
             <p class="sideText">RANDOM STUFF ON SIDE</p>
             
             <div id="videoBox">
-                <div class="content"></div>
-                <input class="slider" value="0" min="0" max="26" type="range" id="sliderValue">
+                <div id="content"></div>
+                <input class="slider" value="0" min="0" max="21" type="range" id="sliderValue">
             </div>
         </div>
     </body>
     <script>
         const slider = 
         document.querySelector("slider")
-        const contentContainer =
-        document.querySelector("content")
+        let contentContainer =
+        document.querySelector("#content")
         let slideValue = 
         document.querySelector("#sliderValue")
-        const imgContainer = document.querySelector("content")
+        
         let slideNum = slideValue.value
         let pictureArray = [
-            'https://drive.google.com/uc?export=view&id=[1DAvVVglvs-p-eluHEFkdwdY3owiGv7xX]',
-            'https://drive.google.com/file/d/1IDQ1S_apmN3YJ-D05n7uzKuK5G2RqN4C/view?usp=drive_link',
-            'https://drive.google.com/file/d/1rG3UN2FWHy9WrWFH14MIAg_7wTtSERET/view?usp=drive_link',
-            'https://drive.google.com/file/d/13YXWV3S8R5gXD9YKzO8MZ6UCPOGJmisP/view?usp=drive_link',
-            'https://drive.google.com/file/d/1ycDiBuWq2wHJcMOBXrM-fz_5ito-v87v/view?usp=drive_link',
-            'https://drive.google.com/file/d/1PQ24fu1lk9f8cr1ToST_HicTfJAMq3c6/view?usp=drive_link',
-            'https://drive.google.com/file/d/16Dle4FOtVb1GN0351FiV2A0TTwCkEQC_/view?usp=drive_link',
-            'https://drive.google.com/file/d/19kTxi4i7GaoGiVdk6sKc7wyL4XZr5UKL/view?usp=drive_link',
-            'https://drive.google.com/file/d/1cI2vA9etNViydmS4Msd-VTIVk0ZJWISr/view?usp=drive_link',
-            'https://drive.google.com/file/d/1OPrhInav1UNt_LRdvK8ah-nDOcWNtXly/view?usp=drive_link',
-            'https://drive.google.com/file/d/1EXSxC70Bpt9aa5-uAbj_-MByL2-n498s/view?usp=drive_link',
-            'https://drive.google.com/file/d/1bNYg9znVsppPOe6bLhpLYiwzOrxum9Oz/view?usp=drive_link',
-            'https://drive.google.com/file/d/1aw2sNNvbJZd0L7JUceO0skvmc0WYZ8rC/view?usp=drive_link',
-            'https://drive.google.com/file/d/1YEIRxw8XwALOOiLXw8IstXgD6AhgdWmX/view?usp=drive_link',
-            'https://drive.google.com/file/d/14_eAbMkZnB-iXOKhGI71riU5ndElSc7N/view?usp=drive_link',
-            'https://drive.google.com/file/d/1eWjgomcGBlAFc5FiKSJbpyDOHzKwiT4J/view?usp=drive_link',
-            'https://drive.google.com/file/d/1kSY6eQen0LE9kXKVPqbTUTGv36V9MxKi/view?usp=drive_link',
-            'https://drive.google.com/file/d/1UUrv5Z3xgRWjvxKYVyZOJNZE58GsKMYG/view?usp=drive_link',
-            'https://drive.google.com/file/d/1CTj6F9_zDxfRAMyFK92Vu2PVC5j1eg64/view?usp=drive_link',
-            'https://drive.google.com/file/d/1DCXXFLUDQVpbxRVCFYT7QgVMeg7PSeuH/view?usp=drive_link',
-            'https://drive.google.com/file/d/1uyWXIfqTYnTkRWpIGvucpNTQoa0JVGsN/view?usp=drive_link',
-            'https://drive.google.com/file/d/1IcX5ri9a3B5uf8ShjJvjh83dQv176hGk/view?usp=drive_link',
-            'https://drive.google.com/file/d/1qcadkQogVJ1o2KR9iNz7xQRNliSdA-8f/view?usp=drive_link',
-            'https://drive.google.com/file/d/1lCmG1rP97AL4iuhdk1r_b_8OjitEPJSn/view?usp=drive_link',
-            'https://drive.google.com/file/d/1Rnb6s-i0h8nAZ5EmKTB-tQmqYbHn6e2_/view?usp=drive_link',
-            'https://drive.google.com/file/d/1PuKxYJBbxWLBFq8ErKFNZrKybHRyicFs/view?usp=drive_link'
+            'https://lh3.googleusercontent.com/pw/AIL4fc9NzEtjZMoYbyUoAkPJ3lkVGM73lSfzrtqKuU0BgGAsfR1pJH8oLVv93VssfhkeAsCEuKUsGfKIyBtbhCHUofiduqUPARoWTnuD1DJjbzMYHCW0QA=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc8JfVDty_gH6442cW-OqKmXf6slaE9S_lgGLddMms0V1h4JnG3V7QIWkCMBenjrXkUpPfiKyxksZfTm1AHtk0tIxzrmoA-0t92lFc594neDHcgHlw=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc-3w9KTX7q3SfVAwnYGx9-eusXtG0Ym5f7CHSLYlwtatbNBUri6Fb_bvhivE4sNJc6fnCnr49urtBLV07qsdjGDw7o_FqcQCY6XCtiWTbANV9Fzgg0=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc8wwhqDnEB1fJBRGZqsGUkjk9eRy8GEU1nadOS9LPdICPDuG3SUObtNn7ICMHNSvnHI4DGDUnKKs4cA4BHYI5a3Bn-6GdZEvkvKGqDddsd7LizCByY=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc9ke4-JgWA8V2s4CCohdJvxdmBfkzc_xT4VviAgM8WczGkFTI6EwRPoKol0qtSb2Y43xJUA_ZO3sAvOFMF97IjYctE-Ly-p722btg61AHrgngPoF4I=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc_dAX-gQ0c2EATiqKMdGbBHP_0BlNK5dOQ-DwP81T0zV2Jz2wupSjGvnjsg5sCBl8Hg-a9zJtmlWdBp_9Xu1EEG9pT6zAX8Igqt7u3CL-TNJ_4y7i8=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc_wAb79N2qmrKDX9dxJ4Dm1a_B2-y-JwkzBnAY1GNRsGvijCYIEe1oG1wlqThMj4e133JoQmNnIPcAeSVSur4Z0IkW1kvG1R_G3EQQ97xBoXEhK_-A=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc8AX1blyQ_THjCo3e1SLpI9GFW1caJtOfBjNZmthYE9a-g6EDmkhqXOj8ZhCE11joakmyW7HkJ0QcA3tBPvELVaGfSSpxcqbpDDofyVgHAr84X7MFs=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc9RIIuiFVEtPuFv-YTiJeXcRSTYMgGaHvK4pdIallyuRDBNl2b7l3P-QVlYsmdXJU5izKGQrNa91tUSTnzjv4EWV8yMwYObRJqvoFt5CEjeMZKlJ5I=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc_PhCLy3xSTT_5X1SUwqJcYsIv0TCeZEYGBuhgrGyqxtiuq857DMb4S9gb-nYPWoa3nRJjPE57OSiA1E_M6xA2bnTT5exxPTVXLscBt4yXP0KfFGK0=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc-JdI7nI4dPgXsjOkOulg8_HaIxtIrrTRYZ6mv2pITRjmGSjnc5DwRB34D7Pgh2JonV61JRGPuJvEBcu1fm0YBHVDy1gxNgxBkMUULweTz0IIAmQTY=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc_jPNfe3b4L-CnFaQZUWldmK2NlK3gRbyqZbQ7jwvAtsUa-OhA42WHz73q-wQeY1eGLFiYgEPEJyb_JdysdxlAp2XK0kGtirJpsjznt-Ci6emPMDRQ=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc_HEQEn1DLiJ1fpUoAsAVAZH9E8UKJ86e7gS5n_f4G4hvexxOA7Iqzf1WGaXrj1W1xA3D47kTWdO9pwjIIgCIFY16Hh5yMm2wDaxl3TgrRUxO0HrKU=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc9bAiGTYOEmuzj5bVhEaPK-hnbDq9CklgjBJrg9mpo5U32fc1iyexiQWptyWYxkWec5QJvwllU2vtjRIejjXHhI3qGZui85SdIRlDq0iNgUIKfXQ0Y=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc_6ZNAZcxVyL-glRjSCvusd4Pk4I0akqBj4VOtJqzamoFqlsCgB9BBkr1bMfbNFWEk1ONQ0I405EvplYxLS7PFiut3xqc-ZkXPoRLUPnzMhdMShYDo=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc_AkNonYHmD34NHNo0WSFMIV-asx-__LmrLjxGn-EtZI6z9txl3D5Sbj_zz2ullBrzapxNA9lt1W21XZilperjc4O8YLlTrZ1DsZwYuT7dft-mkdUA=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc_F5OdwtvNVjPKCuWf_fZGi5Q1Sb1XvxFyHdxlDr1zzeUMZ8RveR4vzI0CgKq7ulmnK4d3TD__tDQVE5XhBVdvR_lT1osjOtHqIjtsCGDWaHL4rI_g=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc_X4wII5vAa82LLb315CJEItbssjVjqMx1EXEE2lfpoVUtdp88ez4cfnk2xIZepMH4Zggy72B_aUPpYByokelo8hggQu-2yu5q6SY0TgdeshYqmIFo=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc--SwM5vNLvOy-Qb3nJ-4MaLkNGX9M7WeeeCn9MFwJl0q7xYVgUwQyRTo5H-p2YBnx8I5y8tOcWZFeQBcE3wpwxC-d5ziAymmxrCNoiRf621x6IJEc=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc_Sk6bazwPpQ9lkqyZ5wsi4PMJcbpRu9xjk2LY6PTe-6AAZNul3RDZmVwNMBT_QPiisaQhT5q2ioVDxeOmz6vATQ4aqxaLxh8FbDp2dW0KBLx3a2LU=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc9twWUhcUXrsY_rM4dsOXQwobD61cDGdxY2JoJk1UoOgJk7GQ9B66fdDC8En5OGrC1mbEYdfF9nilTj0-DxygkRze6yf5pc582zbSmyObr3GSk0Ruc=w2400',
+            'https://lh3.googleusercontent.com/pw/AIL4fc86Gr68pJXUQ1izKMe9QqcKUtyiG_rWPa9KTGce6rSxUJkkkHevrewpA6JfohtDtMoAE-qkDKvgEBxZ5fOdcXgrL2XhXGP0DKVWlbSpdejUkBvksKo=w2400'
         ]
-        sliderValue.addEventListener('input', getImage())
-        function getImage(){
-            console.log(slideValue)
-            let amnt = slideNum
-            let image = document.createElement('img')
-            image.src = pictureArray[amnt]
-            image.alt = "Skate Picture"
-            imgContainer.appendChild(image)
+        slideValue.addEventListener('input', (e) => {
+            getImage(e.target.value)
+        })
+        function remove(){
+            while(contentContainer.firstChild) {
+                contentContainer.removeChild(contentContainer.firstChild)
+            }
         }
-
+        function getImage(value){
+            remove()
+            console.log(slideValue)
+            let amnt = value
+            console.log (amnt)
+            let img = document.createElement('img')
+            img.src = pictureArray[amnt]
+            img.alt = "Skate Picture"
+            img.style.width = "192px"
+            img.style.height = "108px"
+            console.log(img.src)
+            console.log(img)
+            contentContainer.appendChild(img)
+        }
+        getImage(0)
         
     </script>
 </html>
